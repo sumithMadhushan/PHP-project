@@ -33,26 +33,8 @@
 	    			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">  <!-- style="float:right; -->
 				
 						<ul class="nav navbar-nav nav-tabs"><!-- ul=url --><!-- and Tabs -->
-							<li><a href="mainwindow.html">Home</a></li>
 							
-							<li><a href="about.html">About</a></li>
-							<li><a href="contact.html">Contact</a></li>
-
-							<li class="dropdown">
-		          				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-		          				<ul class="dropdown-menu">
-		            				<li><a href="#">link1</a></li>
-		            				<li><a href="#">link2</a></li>
-		            				<li><a href="#">link3</a></li>
-						            
-						            <li role="separator" class="divider"></li>
-						            <li><a href="#">Separated link1</a></li>
-						            
-						            <li role="separator" class="divider"></li>
-						            <li><a href="#">Separated link12</a></li>
-
-		          				</ul>
-		        			</li>
+							
 						</ul>
 
 
@@ -220,10 +202,10 @@ echo $form;
 			<div class="col-md-5">@ Copyright Thilanka Tea Center 2015.</div>
 			<div class="col-md-7">
 				<ul class="footer-nav">
-					<li><a href="mainwindow.html">Index</a></li>
+					<li><a href="#">Index</a></li>
 					
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="about.html">About Us</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">About Us</a></li>
 				</ul>	
 			</div>
 		</div>
