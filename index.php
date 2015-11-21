@@ -4,7 +4,7 @@
 		<meta charset = "utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-		<title>My Site</title>
+		<title>Thilakna Tea Center</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
 		<!-- Custom CSS for full image slider-->
@@ -188,7 +188,7 @@ echo $form;
 			<div class="col-md-5">
 				<h4>Contact Address</h4>
 				<address>
-					Thilanka Tea Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.
+					Thilanka Tea Collecting Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.
 					
 
 				</address>
@@ -197,13 +197,13 @@ echo $form;
 			
 		</div>
 		<div class="bottom-footer">
-			<div class="col-md-5">@ Copyright WebDevMentors 2014.</div>
+			<div class="col-md-5">@ Copyright Thilanka Tea Center 2015.</div>
 			<div class="col-md-7">
 				<ul class="footer-nav">
 					<li><a href="#">Index</a></li>
-					<li><a href="#">Blog</a></li>
+					
 					<li><a href="#">Contact</a></li>
-					<li><a href="#">Link</a></li>
+					<li><a href="#">About Us</a></li>
 				</ul>	
 			</div>
 		</div>

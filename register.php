@@ -33,10 +33,10 @@
 	    			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">  <!-- style="float:right; -->
 				
 						<ul class="nav navbar-nav nav-tabs"><!-- ul=url --><!-- and Tabs -->
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Contact</a></li>
+							<li><a href="mainwindow.html">Home</a></li>
+							
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
 
 							<li class="dropdown">
 		          				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -209,7 +209,7 @@ echo $form;
 			<div class="col-md-5">
 				<h4>Contact Address</h4>
 				<address>
-					#168, Janaraja mawatha,<br> Uggalboda,<br> Kalutar North.
+					Thilanka Tea Collecting Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.
 
 				</address>
 
@@ -217,13 +217,13 @@ echo $form;
 			
 		</div>
 		<div class="bottom-footer">
-			<div class="col-md-5">@ Copyright WebDevMentors 2014.</div>
+			<div class="col-md-5">@ Copyright Thilanka Tea Center 2015.</div>
 			<div class="col-md-7">
 				<ul class="footer-nav">
-					<li><a href="#">Index</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Link</a></li>
+					<li><a href="mainwindow.html">Index</a></li>
+					
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="about.html">About Us</a></li>
 				</ul>	
 			</div>
 		</div>

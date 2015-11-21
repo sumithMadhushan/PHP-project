@@ -35,7 +35,7 @@
 				
 					<ul class="nav navbar-nav nav-tabs"><!-- ul=url --><!-- and Tabs -->
 							
-							<li class="active"><a href="index.php">Home</a></li>
+							<li><a href="index.php">Home</a></li>
 
 							<li class="dropdown">
 		          				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Requests <b class="caret"></b></a>
@@ -51,6 +51,43 @@
 									
 		          				</ul>
 		        			</li>
+		        			<li><a href="contact.html">Contact</a></li>
+							<li><a href="about.html">About us</a></li>
+		        			<!--Start of the log out form-->
+							<ul class="nav navbar-nav navbar-right">
+						        <li><p class="navbar-text">Are you want to logout ?</p></li>
+						        <li class="dropdown">
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Logout</b> <span class="caret"></span></a>
+									<ul id="login-dp" class="dropdown-menu">
+										<li>
+											 <div class="row">
+													<div class="col-md-12">
+														Are you sure you want to log-out?
+														
+														 <form class="form" role="form" method="post" action="index.php">
+																
+													
+															<li>
+											        			<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Logout</button>
+
+																
+															</li>
+
+														
+														 </form>
+
+
+													</div>
+													<div class="bottom text-center">
+														Log as another user! <a href="index.php"><b>login As</b></a>
+													</div>
+													
+											 </div>
+										</li>
+									</ul>
+						        </li>
+							</ul>
+		        			<!--End of the log out form-->
 								
 						</ul>
                     
@@ -207,13 +244,13 @@ echo $form;
 			
 		</div>
 		<div class="bottom-footer">
-			<div class="col-md-5">@ Copyright phpGroupProject 2015.</div>
+			<div class="col-md-5">@ Copyright Thilanka Tea Center 2015.</div>
 			<div class="col-md-7">
 				<ul class="footer-nav">
-					<li><a href="#">Index</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Link</a></li>
+					<li><a href="mainwindow.html">Index</a></li>
+					
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="about.html">About Us</a></li>
 				</ul>	
 			</div>
 		</div>
