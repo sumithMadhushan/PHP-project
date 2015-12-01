@@ -9,6 +9,11 @@
 		<link rel="stylesheet" href="css/style.css">
 		<!-- Custom CSS for full image slider-->
         <link href="css/full-slider.css" rel="stylesheet">
+<!--tis is for alert>>>>>>>>>>>>>>>>>>http://t4t5.github.io/sweetalert/-->
+<script src="css/sweetalert.min.js"></script>
+<link rel="stylesheet" href="css/sweetalert.css" />
+
+ 
 	</head>
 
 	<body>
@@ -26,7 +31,7 @@
 				        <span class="icon-bar"></span>
 				        
 			      	</button>
-					<a class="navbar-brand" href="#">Thilanka Tea Collecting Center</a> <!-- for replace with image: <img src="path of the image file"> -->
+					<a class="navbar-brand" href="#"><img src="images/icon1.png"></a> <!-- for replace with image: <img src="path of the image file"> -->
 				</div> 
 				<!--</div>-->
 				
@@ -39,15 +44,16 @@
 session_start();
 
 if(isset($_POST['submit'])){
-
+	//$loginform="";
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+	//$privilege=$_POST['privilege'];
 	//$username = mysql_real_escape_string($_POST['username']);
 	//$password = mysql_real_escape_string($_POST['password']);
 
 	if($username&&$password){
 		$connec = mysql_connect("localhost","root","") or die("Couldn't connect to the database.!");
-		mysql_select_db("mywebsite") or die("Coudn't find database.!");
+		mysql_select_db("t_center") or die("Coudn't find database.!");
 
 		$query = mysql_query("SELECT * FROM user WHERE username='$username'");
 
@@ -57,15 +63,49 @@ if(isset($_POST['submit'])){
 			while($row=mysql_fetch_assoc($query)){
 				$dbusername=$row['username'];
 				$dbpassword = $row['password'];
+				$dbprivilege=$row['privilege'];
 			}
 
 			if($username==$dbusername&&md5($password)==$dbpassword){
+				//session_start();
 
-				echo "You are logged in.!";
+				//echo "You are logged in.!";
 				@$_SESSION['username'] =$username; 
+				@$_SESSION['privilege'] =$privilege; 
+				/*$loggedAdmin="Administrator";
+				$loggedCus="Customer";*/
+
+				if($dbprivilege=='Administrator'){
+
+					
+					echo "<script>sweetAlert('Congratulations!', 'Your are logged in successfuly.!', 'success');</script>";
+					//echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";
+					
+				    /*echo '<script language="javascript">';
+					echo 'alert("You are log in.")';
+					echo '</script>';*/
+					echo "<script>location.assign('admin/admin.php')</script>";
+					//$loginform="mainwindow.html";
+					//header("Location:mainwindow.html");
+					//exit();
+				}
+				if($dbprivilege=='Customer'){
+					echo "<script>sweetAlert('Congratulations!', 'Your are logged in successfuly.!', 'success');</script>";
+
+					echo "";
+					echo "";
+					echo "";
+					echo "<script>location.assign('mainwindow.php')</script>";
+					//$loginform="admin.php";
+					//header("Location:admin.php");
+					//exit();
+				}
 			}else{
-				echo "Your password is incorrect.";
-			}
+				echo '<script language="javascript">';
+				echo 'alert("error! Your password is incorrect.")';
+				echo '</script>';
+				echo "<script>location.assign('index.php')</script>";
+			}	
 		}else{
 			die("That user doesn't exsits.!");
 		}
@@ -79,26 +119,26 @@ if(isset($_POST['submit'])){
 	$form = <<<EOT
 
 	<ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">Already have an account?</p></li>
+        <li><p class="navbar-text"><font color="green">Already have an account?</font></p></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><font color="green">Login</font></b> <span class="caret"></span></a>
 			<ul id="login-dp" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
-								Login via
+								<font color="green">Login via</font>
 								
-								 <form class="form" role="form" method="post" action="mainwindow.html">
+								 <form class="form" role="form" method="post" action="index.php">
 										<div class="form-group">											 
 											 <input type="text" class="form-control"  name="username" placeholder="Username" required>
 										</div>
 										<div class="form-group">											 
 											 <input type="password" class="form-control" name="password" placeholder="Password" required>
 
-                                             <div class="help-block text-right"><a href="#">Forget the password ?</a></div>
+                                             <div class="help-block text-right"><a href="#"><font color="green">Forget the password ?</font></a></div>
 										</div>
 										<div class="form-group">
-											 <button type="submit" class="btn btn-primary btn-block" name="submit">Sign in</button>
+											 <button type="submit" class="btn btn-success btn-block" name="submit">Sign in</button>
 										</div>
 										<div class="checkbox">
 											 <label>
@@ -107,12 +147,11 @@ if(isset($_POST['submit'])){
 										</div>
 								 </form>
 							</div>
-							<div class="bottom text-center">
-								New here ? <a href="register.php"><b>Join Us</b></a>
-							</div>
+							
 					 </div>
 				</li>
 			</ul>
+
         </li>
 	</ul>
 
@@ -186,24 +225,22 @@ echo $form;
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
-				<h4>Contact Address</h4>
+				<h4><font color="green">Contact Address</font></h4>
 				<address>
-					Thilanka Tea Collecting Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.
-					
-
+					<font color="green">Thilanka Tea Collecting Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.</font>
 				</address>
 
 			</div>
 			
 		</div>
 		<div class="bottom-footer">
-			<div class="col-md-5">@ Copyright Thilanka Tea Center 2015.</div>
+			<div class="col-md-5"><font color="green">@ Copyright Thilanka Tea Center 2015.</font></div>
 			<div class="col-md-7">
 				<ul class="footer-nav">
-					<li><a href="#">Index</a></li>
+					<li><a href="#"><font color="green">Index</font></a></li>
 					
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">About Us</a></li>
+					<li><a href="#"><font color="green">Contact</font></a></li>
+					<li><a href="#"><font color="green">About Us</font></a></li>
 				</ul>	
 			</div>
 		</div>
@@ -211,7 +248,6 @@ echo $form;
 	
 
 </footer>
-
 <!-- End of the footer -->
 
 		<script type="text/javascript" src = "js/jquery.js"> </script>
@@ -224,5 +260,98 @@ echo $form;
 	    })
 	    </script>
 
+				
+
 	</body>
 </html> 
+
+<!--This is for when press bitton popou window
+
+<style>
+
+	#white-background{
+		display: none;
+		width: 100px;
+		height: 100px;
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		background-color: #fefefe;
+		opacity: 0.7;
+		z-index: 9999;
+	}
+
+	#dlgbox{
+		/*initially dialog is hidden*/
+		display: none;
+		position: fixed;
+		width: 480px;
+		z-index: 9999;
+		border-radius: 10px;
+		background-color: #7c7d7e;
+	}
+	#dlg-header{
+		background-color: #6d84b4;
+		color: white;
+		font-size: 20px;
+		padding: 10px;
+		margin: 10px 10px 10px 10px;
+	}
+	#dlg-body{
+		background-color: white;
+		color: black;
+		font-size: 14px;
+		padding: 10px;
+		margin: 0px 10px 10px 10px;
+	}
+	#dlg-footer{
+		background-color: #f2f2f2;
+		text-align: right;
+		padding: 10px;
+		margin: 0px 10px 10px 10px;
+	}
+	#dlg-footer button{
+		background-color: #6d84b4;
+		color: white;
+		padding: 5px;
+		border: 0px;
+	}
+
+
+</style>
+
+
+
+
+
+<div id="white-background"></div>
+					<div id="dlgbox">
+						<div id="dlg-header">You are logged in.!</div>
+						<div id="dlg-body">Press ok to Continue.!</div>
+						<div id="dlg-footer">
+							<button onclick="dlgLogin()">Login<button>
+					</div>
+				</div>
+
+	    <script>
+			function dlgLogin(){
+				var whitebg=document.getElementById("white-background");
+				var dlg=document.getElementById("dlgbox");
+				whitebg.script.display="none";
+				dlg.script.display="none";
+			}
+			function showDialog(){
+				var whitebg=document.getElementById("white-background");
+				var dlg=document.getElementById("dlgbox");
+				whitebg.script.display="block";
+				dlg.script.display="block";
+
+				var winwidth=window.innerWidth;
+				var winheight=window.innerheight;
+
+				dlg.style.left= (winWidth/2) - 480/2 + "px";
+				dlg.style.top = "150px";
+			}
+
+		</script>
+-->

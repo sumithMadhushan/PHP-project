@@ -24,7 +24,7 @@
 				        <span class="icon-bar"></span>
 				        
 			      	</button>
-					<a class="navbar-brand" href="advance_payment_req.php">Enter Your fertilizer Request Here</a> <!-- for replace with image: <img src="path of the image file"> -->
+					<a class="navbar-brand" href="advance_payment_req.php"><font color="green">Request For Advance</font></a> <!-- for replace with image: <img src="path of the image file"> -->
 				</div> 
 				<!--</div>-->
 				
@@ -33,41 +33,46 @@
 				
 					<ul class="nav navbar-nav nav-tabs"><!-- ul=url --><!-- and Tabs -->
 							
-							<li class="active"><a href="index.php">Home</a></li>
+							<li><a href="mainwindow.php"><font color="green">Home</font></a></li><!--home nav-->
 
-							<li class="dropdown">
-		          				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Requests <b class="caret"></b></a>
+
+							<li class="dropdown"><!--Request nav-->
+		          				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="green">Requests</font> <b class="caret"></b></a>
 		          				<ul class="dropdown-menu">
-		            				<li><a href="fertilizer_req.php">Fertilizer request</a></li>
-		            				<li><a href="advance_payment_req.php">Advance payment request</a></li>
+		            				<li><a href="fertilizer_req.php"><font color="green">Fertilizer request</font></a></li>
+		            				<li><a href="advance_payment_req.php"><font color="green">Advance payment request</font></a></li>
 						            
 						            <li role="separator" class="divider"></li>
-						            <li><a href="view_fer_req.php">View your fertilizer requests</a></li>
+						            <li><a href="view_fer_req_cus.php"><font color="green">View sent requests</font></a></li>
 									
-									<li role="separator" class="divider"></li>
-						            <li><a href="view_ad_req.php">View your advance requests</a></li>
-									
-		          				</ul>
-		        			</li>
+									 <li role="separator" class="divider"></li>
+						            <li><a href="view_ad_req_cus.php"><font color="green">View sent requests</font></a></li>
+						            
 
-		        			<li><a href="contact.html">Contact</a></li>
-							<li><a href="about.html">About us</a></li>
+		          				</ul>
+
+
+		        			</li>
+		        			<li><a href="contact.html"><font color="green">Contact</font></a></li>
+							<li><a href="about.html"><font color="green">About us</font></a></li>
+		          				
+							
 		        			<!--Start of the log out form-->
 							<ul class="nav navbar-nav navbar-right">
-						        <li><p class="navbar-text">Are you want to logout ?</p></li>
+						        <li><p class="navbar-text"><font color="green">Are you want to logout ?</font></p></li>
 						        <li class="dropdown">
-						          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Logout</b> <span class="caret"></span></a>
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><font color="green">Logout</font></b> <span class="caret"></span></a>
 									<ul id="login-dp" class="dropdown-menu">
 										<li>
 											 <div class="row">
 													<div class="col-md-12">
-														Are you sure you want to log-out?
+														<font color="green">Are you sure you want to log-out?</font>
 														
 														 <form class="form" role="form" method="post" action="index.php">
 																
 													
 															<li>
-											        			<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Logout</button>
+											        			<button class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">Logout</button>
 
 																
 															</li>
@@ -77,9 +82,7 @@
 
 
 													</div>
-													<div class="bottom text-center">
-														Log as another user! <a href="index.php"><b>login As</b></a>
-													</div>
+													
 													
 											 </div>
 										</li>
@@ -205,7 +208,7 @@ $form = <<<EOT
 					    
 					
 					<div>
-					<button type="submit" class="btn btn-primary" name="submit">Send Request</button>
+					<button type="submit" class="btn btn-success" name="submit">Send Request</button>
 					</div>
 				</form>
 				</div>
@@ -233,9 +236,9 @@ echo $form;
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
-				<h4>Contact Address</h4>
+				<h4><font color="green">Contact Address</font></h4>
 				<address>
-					Thilanka Tea Collecting Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.
+					<font color="green">Thilanka Tea Collecting Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.</font>
 
 				</address>
 
@@ -243,13 +246,13 @@ echo $form;
 			
 		</div>
 		<div class="bottom-footer">
-			<div class="col-md-5">@ Copyright Thilanka Tea Center 2015.</div>
+			<div class="col-md-5"><font color="green">@ Copyright Thilanka Tea Center 2015.</font></div>
 			<div class="col-md-7">
 				<ul class="footer-nav">
-					<li><a href="mainwindow.html">Index</a></li>
+					<li><a href="mainwindow.php"><font color="green">Index</font></a></li>
 					
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="about.html">About Us</a></li>
+					<li><a href="contact.html"><font color="green">Contact</font></a></li>
+					<li><a href="about.html"><font color="green">About Us</font></a></li>
 				</ul>	
 			</div>
 		</div>

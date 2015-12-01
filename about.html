@@ -13,7 +13,7 @@
 		
 <!-- start of the navigation bar -->
 
-		<nav class="navbar navbar-inverse navbar-static-top no-margin" roll="navigation"> <!-- navigation bar -->
+		<nav class="navbar navbar-inverse navbar-static-top" roll="navigation"> <!-- navigation bar -->
 			<div class="container-fluid"> <!-- reserve area for css fluid-for moved to left corner -->
 				<div class="navbar-header">
 				<!--	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> -->
@@ -33,31 +33,31 @@
 				
 						<ul class="nav navbar-nav nav-tabs"><!-- ul=url --><!-- and Tabs -->
 							
-							<li><a href="mainwindow.html">Home</a></li><!--home nav-->
+							<li><a href="mainwindow.php"><font color="green">Home</font></a></li><!--home nav-->
 
 
 							<li class="dropdown"><!--Request nav-->
-		          				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Requests <b class="caret"></b></a>
+		          				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="green">Requests</font> <b class="caret"></b></a>
 		          				<ul class="dropdown-menu">
 		            				<li><a href="fertilizer_req.php">Fertilizer request</a></li>
 		            				<li><a href="advance_payment_req.php">Advance payment request</a></li>
 						            
 						            <li role="separator" class="divider"></li>
-						            <li><a href="view_fer_req.php">View sent requests</a></li>
+						            <li><a href="view_fer_req_cus.php"><font color="green">View sent requests</font></a></li>
 									
 									 <li role="separator" class="divider"></li>
-						            <li><a href="view_ad_req.php">View sent requests</a></li>
+						            <li><a href="view_ad_req_cus.php"><font color="green">View sent requests</font></a></li>
 						            
 
 		          				</ul>
 		        			</li>
-		        			<li><a href="contact.html">Contact</a></li>
-							<li><a href="about.html">About us</a></li>
+		        			<li><a href="contact.html"><font color="green">Contact</font></a></li>
+							<li><a href="about.html"><font color="green">About us</font></a></li>
 		        			<!--Start of the log out form-->
 							<ul class="nav navbar-nav navbar-right">
-						        <li><p class="navbar-text">Are you want to logout ?</p></li>
+						        <li><p class="navbar-text"><font color="green">Are you want to logout ?</font></p></li>
 						        <li class="dropdown">
-						          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Logout</b> <span class="caret"></span></a>
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><font color="green">Logout</font></b> <span class="caret"></span></a>
 									<ul id="login-dp" class="dropdown-menu">
 										<li>
 											 <div class="row">
@@ -97,8 +97,25 @@
 			</div>	
 
 		</nav>
-<!-- End of the navigation bar -->
 
+<!-- End of the navigation bar -->
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body…</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!-- Start of the Forms -->
 
 <div class="container">
@@ -106,12 +123,43 @@
 		<div class="col-md-5">
 			<div class="panel panel-default"><!--kotuwak athulata daganne me widiyata-->
 				<div class="panel-body">
-					<h4>Contact Address</h4>
+					<!--<h4>Contact Address</h4>
 					<address>
 						
 						Thilanka Tea Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.
 
-					</address>
+					</address>-->
+					<strong><font size="4" color="green">About Us</font></strong>
+					<p>In 1983 a young team of tea experts with a passion for quality created a new brand of superior tea. Thus “Mlesna” was born.<br><br>
+
+At “Mlesna” our ambition is not just selling packaged teas but giving consumers undisputed quality teas in beautiful packages.<br>
+
+With less than 10 people the “Mlesna” team set about their work to create the best quality teas in the most selectively designed packages.<br><br>
+
+With humble beginnings we at “Mlesna” set about to package teas in new and creative ways in order to attract the connoisseurs of tea into the world of exclusive teas, and in doing so created a special market for value added teas.<br><br></p>
+
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-7">
+			<div class="panel panel-default"><!--kotuwak athulata daganne me widiyata-->
+				<div class="panel-body">
+					<!--<h4>Contact Address</h4>
+					<address>
+						
+						Thilanka Tea Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.
+
+					</address>-->
+					<p>Today with 20 years of experience, more than 3000 different products and a permanent staff of more than 350 people, we at “Mlesna” strive to give our customers, the connoisseurs, the same we did 20 years ago – superior quality teas in exquisite packaging. In doing so – “Mlesna” has spread its wings the world over and service a clientele of 50 countries.<br><br>
+
+With skilled tea tasters with more than 25 years of experience, blenders of varied tea knowledge, packaging experts, quality gurus and a drive that few people dare to show – we, the “Mlesna” team, continue to strive for excellence.<br><br>
+
+Be it black or green, drunk plain or with milk, we at “Mlesna” give the world quality teas that no one can match and which the connoisseur always wishes to drink. In doing so “Mlesna” keeps to their word in providing the world with tea that is “Naturally the Best”.<br><br></p>
+
+
 
 				</div>
 			</div>
@@ -145,23 +193,22 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
-				<h4>Contact Address</h4>
+				<h4><font color="green">Contact Address</font></h4>
 				<address>
-					Thilanka Tea Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.
-
+					<font color="green">Thilanka Tea Collecting Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.</font>
 				</address>
 
 			</div>
 			
 		</div>
 		<div class="bottom-footer">
-			<div class="col-md-5">@ Copyright Thilanka Tea Center 2015.</div>
+			<div class="col-md-5"><font color="green">@ Copyright Thilanka Tea Center 2015.</font></div>
 			<div class="col-md-7">
 				<ul class="footer-nav">
-					<li><a href="mainwindow.html">Index</a></li>
+					<li><a href="#"><font color="green">Index</font></a></li>
 					
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="about.html">About Us</a></li>
+					<li><a href="contact.html"><font color="green">Contact</font></a></li>
+					<li><a href="about.html"><font color="green">About Us</font></a></li>
 				</ul>	
 			</div>
 		</div>
@@ -176,3 +223,4 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	</body>
 </html> 
+

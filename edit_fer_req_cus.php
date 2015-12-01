@@ -1,10 +1,12 @@
 <!doctype html>
+    
+    
 <html>
 	<head>
 		<meta charset = "utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-		<title>Contact</title>
+		<title>Send a Fertilizer Requests</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
@@ -50,9 +52,13 @@
 						            
 
 		          				</ul>
+
+
 		        			</li>
 		        			<li><a href="contact.html"><font color="green">Contact</font></a></li>
 							<li><a href="about.html"><font color="green">About us</font></a></li>
+		          				
+							
 		        			<!--Start of the log out form-->
 							<ul class="nav navbar-nav navbar-right">
 						        <li><p class="navbar-text"><font color="green">Are you want to logout ?</font></p></li>
@@ -97,91 +103,136 @@
 		</nav>
 <!-- End of the navigation bar -->
 
-<!-- Start of the Forms -->
+<?php
+
+require_once("includes/initialize.php");
+
+
+        $r_id = $_GET['id'];
+        $find_req=Request::find_by_id($r_id);
+    
+
+if(isset($_POST['submit'])){
+    
+	$fer_type=trim(mysql_prep($_POST['fer_type']));
+	$name=trim(mysql_prep($_POST['name']));
+	$quantity=trim(mysql_prep($_POST['quantity']));
+	$date=trim(mysql_prep($_POST['date']));
+
+		if(empty($errors)){
+		
+			$new_req=new Request();
+			
+			$new_req->req_id=$r_id;
+			$new_req->fer_type=$fer_type;
+			$new_req->name=$name;
+			$new_req->quantity=$quantity;
+			$new_req->date=$date;       
+			
+			$rslt=$new_req->update();
+			
+			if($rslt) {
+				echo "<div class=\"container\">
+						<div class=\"row\">
+							<div class=\"col-md-7\">
+								<div class=\"panel panel-default\">
+									<div class=\"panel-body\">
+										<h4>Your request has been successfully updated<h4><br>
+										<h4>Thank You!<h4><br>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					";
+			} else {
+				 echo "<div class=\"container\">
+						<div class=\"row\">
+							<div class=\"col-md-7\">
+								<div class=\"panel panel-default\">
+									<div class=\"panel-body\">
+										<h4>Error!<h4><br>
+										<h4>Your request has not been sent<h4><br>									
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					";
+			}
+				
+		}else{
+			 echo "<div class=\"container\">
+						<div class=\"row\">
+							<div class=\"col-md-7\">
+								<div class=\"panel panel-default\">
+									<div class=\"panel-body\">
+										<h4>Error!<h4><br>
+										<h4>Your request has not been sent<h4>.<br>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					";
+	}
+
+}else{
+	
+$form = <<<EOT
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-5">
-			<div class="panel panel-default"><!--kotuwak athulata daganne me widiyata-->
-				<div class="panel-heading">
-					<h4 class="panel-title"><strong>Contact Address</strong></h4>
-				</div>
-
-				<div class="panel-body">
-					
-					<address>
-						<strong>Thilanka Tea Center,</strong>
-						<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.
-
-					</address>
-
-				</div>
-			</div>
-		</div>
+		
 
 		<div class="col-md-7">
 			<div class="panel panel-default">
+				<div class="panel-body">
 
-				<div class="panel-heading">
-					<h4 class="panel-title"><strong>Contact Form</strong></h4>
-				</div>
+				<form class="navbar-form navbar-left" id="req_form" action="edit_fer_req.php?id=$r_id" method="post">
+  					<div class="form-group">
+                        
+                        Request ID = $r_id
 
-				<div class="panel-body"><!--kotuwak athulata daganne me widiyata-->
+                        <br/><br/>
+                        <select name="fer_type" id="fer_type">			
+							<option name="fer_type" value="For small plants">For plants</option>
+							<option name="course" value="For grown trees">For grown trees</option>
+						</select>
+                        
+                        <br/><br/>
+					    <input type="text" id="nameF" name="name" class="form-control" placeholder="Name of fertilizer: eg- T 750"
+                        value="$find_req->name"><br/><br>
+                        
+					    <input type="text" id="textF" name="quantity" class="form-control" placeholder="Quantity in kg: eg- 150kg"
+                        value="$find_req->quantity"/><br><br>
+                        
+					    <input type="date" id="textF" name="text" class="form-control" placeholder="Request date: yyyy:mm:dd"
+                        value="$find_req->date"/><br><br>				
 
-					<!--form eke code eka copy paste karnna ona. see 21st video-->
-				<form class="form-horizontal" method="post" id="contactform" action="" role="form">
-					<div class="form-group">
-						<label for="contactname" class="col-sm-2 control-label">Your Name</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="contactname" placeholder="Enter your name">
-						</div>
-						
+
+					    
 					</div>
-
-					<div class="form-group"> 
-						<label for="contactEmail" class="col-sm-2 control-label">Email</label>
-						<div class="col-sm-10">
-							<input type="email" class="form-control" id="contactEmail" placeholder="Enter Email Address">
-						</div>
-						
+					<div>
+					<button type="submit" class="btn btn-primary" name="submit">Send Request</button>
 					</div>
-
-					<div class="form-group">
-						<label for="contactsubject" class="col-sm-2 control-label">Subject</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="contactsubject" placeholder="Enter Subject">
-						</div>
-						
-					</div>
-
-					
-					<div class="form-group">
-						<label for="contactmessage" class="col-sm-2 control-label">Message</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" id="contactmessage" rows="6"></textarea>
-						</div>
-						
-					</div>
-
-					
-
-					<div class="col-sm-10 col-md-offset-10">
-						<!--<button type="submit" class="btn btn-primary btn-block" name="submit">Submit</button>-->
-						<button type="button" id="contactbtn" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">Submit</button>
-					</div>
-					
 				</form>
-
-
 				</div>
 			</div>
 		</div>
-		
-		
 	</div>
 
-
 </div>
+
+
+EOT;
+
+echo $form;
+
+
+}
+
+?>
 
 <!-- End of the Forms -->
 
@@ -192,7 +243,9 @@
 			<div class="col-md-5">
 				<h4><font color="green">Contact Address</font></h4>
 				<address>
+					
 					<font color="green">Thilanka Tea Collecting Center,<br> Warakapalahena,<br> Nakiyadeniya,<br> Galle.</font>
+
 				</address>
 
 			</div>
@@ -204,8 +257,8 @@
 				<ul class="footer-nav">
 					<li><a href="#"><font color="green">Index</font></a></li>
 					
-					<li><a href="contact.html"><font color="green">Contact</font></a></li>
-					<li><a href="about.html"><font color="green">About Us</font></a></li>
+					<li><a href="#"><font color="green">Contact</font></a></li>
+					<li><a href="#"><font color="green">About Us</font></a></li>
 				</ul>	
 			</div>
 		</div>
@@ -218,60 +271,5 @@
 
 		<script type="text/javascript" src = "js/jquery.js"> </script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-
-function validateText(id){
-	if($("#"+id).val()==null || $("#"+id).val()==""){
-		//alert(id+" Validation Error.!");
-		var div=$("#"+id).closest("div");
-		div.addClass("has-error");
-		return false;
-	}else{
-		var div=$("#"+id).closest("div");
-		div.removeClass("has-error");
-		return true;
-	}
-}
-
-//make sure the website completly loaded.
-$(document).ready(
-	function(){
-		$("#contactbtn").click(
-			function(){
-				if(!validateText("contactname")){
-					return false;
-				}
-				if(!validateText("contactEmail")){
-					return false;
-				}
-				if(!validateText("contactsubject")){
-					return false;
-				}
-				if(!validateText("contactmessage")){
-					return false;
-				}
-				$("form#contactform").submit();
-			});
-	}
-
-
-);
-
-</script>
-
-
 	</body>
 </html> 
-
-<!--
-
-This is the search bar
-		<form class="navbar-form navbar-left" role="search">
-  					<div class="form-group">
-					    <input type="text" class="form-control" placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
-				</form>
-
--->
